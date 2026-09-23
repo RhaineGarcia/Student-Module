@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Set the page background and shared font. */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #dcedb9;
+      font-family: "Futura", sans-serif;
+    }
+
+    /* Build the left navigation sidebar. */
+    .sidebar-container {
+      width: 250px;
+      height: 100vh;
+      background-color: #B5D29C;
+      padding: 30px 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    /* Keep the logo and brand name together. */
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Style the application name. */
+    .brand-text {
+      font-size: 22px;
+      font-weight: bold;
+      color: #4A6B41;
+      font-family: "Futura", sans-serif;
+    }
+
+    /* Arrange the sidebar and page content horizontally. */
+    .dashboard-layout {
+      display: flex;
+      flex-direction: row;
+    }
+
+    /* Style the navigation section label. */
+    .menu-label {
+      font-size: 13px;
+      font-weight: bold;
+      color: #5D7A50;
+      font-family: "Futura", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 40px;
+    }
+
+    /* Stack the navigation links vertically. */
+    .menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Align each navigation icon with its label. */
+    .tab-button {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      color: #000000;
+      font-family: "Futura", sans-serif;
+      padding: 13px 25px;
+    }
+
+    .tab-button img {
+      mix-blend-mode: multiply;
+    }
+
+    /* Show which page is currently selected. */
+    .active-tab {
+      background-color: #D2E7C4;
+      border-radius: 30px;
+      text-decoration: none;
+      color: #000000;
+    }
+
+    /* Lay out the main page content. */
+    .main-content {
+      flex: 1;
+      padding: 30px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* Style the page heading. */
+    .page-title {
+      font-size: 30px;
+      font-weight: bold;
+      color: black;
+      font-family: "Futura", sans-serif;
+    }
+
+    /* Display course cards in two columns. */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    /* Style each course summary card. */
+    .course-card {
+      background-color: #9dad6f;
+      border-radius: 20px;
+      padding: 25px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Stack the course details. */
+    .card-details {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Emphasize the course code. */
+    .course-code {
+      font-size: 24px;
+      font-weight: bold;
+      color: #3d4a26;
+    }
+
+    /* Format the course name. */
+    .course-title {
+      font-size: 14px;
+      font-weight: bold;
+      color: #4b5833;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Style the link to the grade details. */
+    .view-more-link {
+      display: inline-block;
+      background-color: #dcedb9;
+      color: #000000;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 6px 16px;
+      border-radius: 20px;
+      align-self: flex-start;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.2s ease;
+    }
+
+    /* Add a hover state to the details link. */
+    .view-more-link:hover {
+      background-color: #D2E7C4;
+    }
+
+    /* Draw the circular grade indicator. */
+    .grade-circle {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: conic-gradient(#dcedb9 0deg 306deg, #7c8f56 306deg 360deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Create the center of the grade indicator. */
+    .grade-circle::before {
+      content: "";
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      background-color: #9dad6f;
+    }
+
+    /* Position the grade inside the circle. */
+    .grade-circle-text {
+      position: relative;
+      z-index: 1;
+      font-size: 20px;
+      font-weight: bold;
+      color: #3d4a26;
+      font-family: "Futura", sans-serif;
+    }
+
+    /* Style the sidebar logout link. */
+    .logout-button {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #6f8759;
+      padding: 13px 25px;
+      border-radius: 30px;
+      font-family: "Futura", sans-serif;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Wrap the sidebar and course content. -->
+  <div class="dashboard-layout">
+    <!-- Provide navigation between student pages. -->
+    <div class="sidebar-container">
+      <!-- Show the application identity. -->
+      <div class="logo-row">
+        <img src="images/IMARKA_LOGO.png" alt="Logo" style="width: 35px; height: 35px; border-radius:50%;">
+        <span class="brand-text">iMarka</span>
+      </div>
+
+      <!-- Label the primary navigation area. -->
+      <span class="menu-label">Main Menu</span>
+
+      <!-- Link to the main student pages. -->
+      <nav class="menu-links">
+        <a href="dashboard.html" class="tab-button">
+          <img src="images/Dashboard_icon.png" alt="Dashboard Icon" width="30px">
+          <span>Dashboard</span>
+        </a>
+
+        <a href="Courses.html" class="tab-button active-tab">
+          <img src="images/Courses_icon.png" alt="Courses Icon" width="30px">
+          <span>Courses</span>
+        </a>
+      </nav>
+
+      <!-- Provide the logout action. -->
+      <a href="#" class="logout-button">
+        <span>Log out</span>
+      </a>
+    </div>
+
+    <!-- Display the available courses. -->
+    <div class="main-content">
+      <h1 class="page-title">My Courses</h1>
+
+      <!-- Group all course summary cards. -->
+      <div class="courses-grid">
+
+        <!-- Summarize the Ethics course. -->
+        <div class="course-card">
+          <div class="card-details">
+            <span class="course-code">GE 008</span>
+            <span class="course-title">ETHICS</span>
+            <a href="Grades.html" class="view-more-link">VIEW MORE</a>
+          </div>
+          <div class="grade-circle">
+            <span class="grade-circle-text">1.75</span>
+          </div>
+        </div>
+
+        <!-- Summarize the Information Management course. -->
+        <div class="course-card">
+          <div class="card-details">
+            <span class="course-code">COMP 105</span>
+            <span class="course-title">INFORMATION MANAGEMENT</span>
+            <a href="Grades.html" class="view-more-link">VIEW MORE</a>
+          </div>
+          <div class="grade-circle">
+            <span class="grade-circle-text">1.50</span>
+          </div>
+        </div>
+
+        <!-- Summarize the Living in the IT Era course. -->
+        <div class="course-card">
+          <div class="card-details">
+            <span class="course-code">GE 002</span>
+            <span class="course-title">LIVING IN THE IT ERA</span>
+            <a href="Grades.html" class="view-more-link">VIEW MORE</a>
+          </div>
+          <div class="grade-circle">
+            <span class="grade-circle-text">1.25</span>
+          </div>
+        </div>
+
+        <!-- Summarize the Discrete Structures course. -->
+        <div class="course-card">
+          <div class="card-details">
+            <span class="course-code">CS 102</span>
+            <span class="course-title">DISCRETE STRUCTURES II</span>
+            <a href="Grades.html" class="view-more-link">VIEW MORE</a>
+          </div>
+          <div class="grade-circle">
+            <span class="grade-circle-text">1.75</span>
+          </div>
+        </div>
+
+        <!-- Summarize the Data Structures course. -->
+        <div class="course-card">
+          <div class="card-details">
+            <span class="course-code">COMP 104</span>
+            <span class="course-title">DATA STRUCTURES AND ALGORITHM</span>
+            <a href="Grades.html" class="view-more-link">VIEW MORE</a>
+          </div>
+          <div class="grade-circle">
+            <span class="grade-circle-text">2.25</span>
+          </div>
+        </div>
+
+        <!-- Summarize the Object Oriented Programming course. -->
+        <div class="course-card">
+          <div class="card-details">
+            <span class="course-code">CS 103</span>
+            <span class="course-title">OBJECT ORIENTED PROGRAMMING</span>
+            <a href="Grades.html" class="view-more-link">VIEW MORE</a>
+          </div>
+          <div class="grade-circle">
+            <span class="grade-circle-text">1.50</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

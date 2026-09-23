@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Set the page size, background, and shared font. */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #dcedb9;
+      font-family: "Futura", sans-serif;
+    }
+
+    /* Place the sidebar beside the dashboard. */
+    .Dashboard-layout {
+      display: flex;
+      flex-direction: row;
+    }
+
+    /* Arrange the dashboard content vertically. */
+    .Main-content {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    /* Highlight the student's name. */
+    .Student-Name {
+      font-size: 30px;
+      font-weight: bold;
+      background-color: #D2E7C4;
+      border-radius: 20px;
+      padding: 5px 10px;
+      align-self: flex-start;
+      display: inline-block;
+    }
+
+    /* Format supporting student information. */
+    .Student-Info-Text {
+      font-size: 15px;
+      font-family: "Futura", sans-serif;
+      color: black;
+      font-weight: bold;
+      padding-left: 10px;
+    }
+
+    /* Style the welcome and profile panel. */
+    .Topbox {
+      background-color: #9dad6f;
+      border-radius: 20px;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    /* Style the welcome message. */
+    .Welcome-text {
+      font-size: 25px;
+      font-weight: bold;
+      color: #000000;
+      font-family: "Futura", sans-serif;
+      margin-bottom: 10px;
+    }
+
+    /* Align the profile image and details. */
+    .Profile-Info {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    /* Spread the student data fields across the row. */
+    .Student-Data {
+      display: flex;
+      flex-direction: row;
+      gap: 150px;
+    }
+
+    /* Stack each data label and value. */
+    .Data-Column {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    /* Split the lower dashboard into two areas. */
+    .Bottom-Layout-Split {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      flex: 1;
+    }
+
+    /* Style the upper card on the left. */
+    .Bottom-Left-Upper-Box {
+      background-color: #9dad6f;
+      border-radius: 20px;
+      flex: 1;
+      margin-bottom: 20px;
+      padding: 30px;
+      display: flex;
+      box-sizing: border-box;
+    }
+
+    /* Align the GWA icon and values. */
+    .gwa-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Stack the GWA text. */
+    .gwa-info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-family: "Futura", sans-serif;
+      color: black;
+      font-weight: bold;
+    }
+
+    /* Style the GWA label. */
+    .gwa-label {
+      font-size: 30px;
+      font-weight: bold;
+      font-family: "Futura", sans-serif;
+    }
+
+    /* Emphasize the current GWA value. */
+    .gwa-value {
+      font-size: 60px;
+      font-weight: bold;
+      font-family: "Futura", sans-serif;
+    }
+
+    /* Style the GWA description. */
+    .gwa-subtext {
+      font-size: 30px;
+      font-weight: normal;
+      font-family: "Futura", sans-serif;
+    }
+
+    .Bottom-Left-Upper-Box img {
+      mix-blend-mode: multiply;
+    }
+
+    /* Size the GWA icon. */
+    .gwa-container img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    /* Style the enrolled courses card. */
+    .Bottom-Left-Lower-Box {
+      background-color: #9dad6f;
+      border-radius: 20px;
+      flex: 1;
+      padding: 30px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Align the courses heading and icon. */
+    .courses-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .courses-header img {
+      mix-blend-mode: multiply;
+    }
+
+    /* Size the courses icon. */
+    .courses-icon {
+      width: 50px;
+      height: auto;
+      mix-blend-mode: multiply;
+    }
+
+    /* Stack the courses heading text. */
+    .courses-header-text {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-family: "Futura", sans-serif;
+      color: black;
+    }
+
+    /* Style the courses heading. */
+    .courses-title {
+      font-size: 30px;
+      font-weight: bold;
+      font-family: "Futura", sans-serif;
+    }
+
+    /* Style the enrolled course count. */
+    .courses-amount {
+      font-size: 20px;
+      font-weight: bold;
+      font-family: "Futura", sans-serif;
+    }
+
+    /* Stack the course list items. */
+    .courses-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-family: "Futura", sans-serif;
+      color: black;
+      font-weight: bold;
+    }
+
+    /* Format each course item. */
+    .courses-item {
+      font-size: 20px;
+      font-weight: bold;
+      font-family: "Futura", sans-serif;
+      color: black;
+    }
+
+    /* Align the course list link to the right. */
+    .courses-footer {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    /* Style the link below the course list. */
+    .courses-footer-link {
+      font-size: 15px;
+      font-weight: bold;
+      font-family: "Futura", sans-serif;
+      color: black;
+      text-decoration: none;
+      background-color: #D2E7C4;
+      padding: 5px 10px;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Stack the two left-side cards. */
+    .Bottom-Left-Stack {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    /* Style the schedule card. */
+    .Bottom-Right-Box {
+      background-color: #9dad6f;
+      border-radius: 20px;
+      flex: 1;
+      padding: 30px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Align the schedule heading and icon. */
+    .schedule-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Size the schedule icon. */
+    .schedule-icon {
+      width: 60px;
+      height: auto;
+      mix-blend-mode: multiply;
+    }
+
+    /* Style the schedule heading. */
+    .schedule-title {
+      font-size: 25px;
+      font-weight: bold;
+      font-family: "Futura", sans-serif;
+      color: black;
+    }
+
+    /* Center the schedule image. */
+    .schedule-image-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Keep the schedule image within its card. */
+    .schedule-image-container img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Build the shared navigation sidebar. */
+    .sidebar-container {
+      width: 250px;
+      min-height: 100vh;
+      background-color: #B5D29C;
+      padding: 30px 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    /* Keep the logo and brand name together. */
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Style the application name. */
+    .brand-text {
+      font-size: 22px;
+      font-weight: bold;
+      color: #4A6B41;
+      font-family: "Futura", sans-serif;
+    }
+
+    /* Style the navigation section label. */
+    .menu-label {
+      font-size: 13px;
+      font-weight: bold;
+      color: #5D7A50;
+      font-family: "Futura", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 40px;
+    }
+
+    /* Stack the navigation links vertically. */
+    .menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Align each navigation icon with its label. */
+    .tab-button {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      color: #000000;
+      padding: 13px 25px;
+      font-family: "Futura", sans-serif;
+    }
+
+    .tab-button img {
+      mix-blend-mode: multiply;
+    }
+
+    /* Show which page is currently selected. */
+    .active-tab {
+      background-color: #D2E7C4;
+      border-radius: 30px;
+      text-decoration: none;
+      color: #000000;
+    }
+
+    /* Style the sidebar logout link. */
+    .logout-button {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #6f8759;
+      padding: 13px 25px;
+      border-radius: 30px;
+      font-family: "Futura", sans-serif;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Wrap the dashboard layout. -->
+  <div class="Dashboard-layout">
+
+    <!-- Provide navigation between student pages. -->
+    <div class="sidebar-container">
+
+      <!-- Show the application identity. -->
+      <div class="logo-row">
+        <img src="images/IMARKA_LOGO.png" alt="Logo" style="width: 35px; height: 35px; border-radius: 50%;">
+        <span class="brand-text">iMarka</span>
+      </div>
+
+      <!-- Label the primary navigation area. -->
+      <span class="menu-label">Main Menu</span>
+
+      <!-- Link to the main student pages. -->
+      <nav class="menu-links">
+        <a href="dashboard.html" class="tab-button active-tab">
+          <img src="images/Dashboard_icon.png" alt="Dashboard Icon" width="30px">
+          <span>Dashboard</span>
+        </a>
+
+        <a href="Courses.html" class="tab-button">
+          <img src="images/Courses_icon.png" alt="Courses Icon" width="30px">
+          <span>Courses</span>
+        </a>
+      </nav>
+
+      <!-- Provide the logout action. -->
+      <a href="#" class="logout-button">
+        <span>Log out</span>
+      </a>
+
+    </div>
+
+    <!-- Display the dashboard information. -->
+    <div class="Main-content">
+
+      <!-- Show the student's welcome and profile data. -->
+      <div class="Topbox">
+        <span class="Welcome-text">Welcome, Yapapa Cat</span>
+
+        <div class="Profile-Info">
+          <!-- Display the profile image. -->
+          <img src="images/YAPAPA.png" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;">
+
+          <div class="Data-Column">
+            <span class="Student-Name">Yapapa Cat</span>
+
+            <div class="Student-Data">
+              <div class="Data-Column Student-Info-Text">
+                <span>STUDENT ID:</span>
+                <span>25-00836</span>
+              </div>
+
+              <div class="Data-Column Student-Info-Text">
+                <span>PROGRAM:</span>
+                <span>BSCS</span>
+              </div>
+
+              <div class="Data-Column Student-Info-Text">
+                <span>SECTION:</span>
+                <span>BSCS-2A</span>
+              </div>
+
+              <div class="Data-Column Student-Info-Text">
+                <span>EMAIL:</span>
+                <span>YapapaCat@plpasig.edu.ph</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Display the lower dashboard cards. -->
+      <div class="Bottom-Layout-Split">
+
+        <!-- Group the GWA and courses cards. -->
+        <div class="Bottom-Left-Stack">
+
+          <!-- Show the current general weighted average. -->
+          <div class="Bottom-Left-Upper-Box">
+            <div class="gwa-container">
+              <img src="images/GWA_icon.png" alt="GWA Icon">
+
+              <div class="gwa-info">
+                <span class="gwa-label">GWA</span>
+                <span class="gwa-value">1.75</span>
+                <span class="gwa-subtext">Current GWA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Show the number of enrolled courses. -->
+          <div class="Bottom-Left-Lower-Box">
+            <div class="courses-header">
+              <img src="images/Enrolled_icon.png" alt="Courses Icon" width="80px">
+
+              <div class="courses-header-text">
+                <span class="courses-title">COURSES ENROLLED</span>
+                <span class="courses-amount">6</span>
+              </div>
+            </div>
+
+            <div class="courses-list">
+              <span class="courses-item">Courses</span>
+              <span class="courses-item">Courses</span>
+              <span class="courses-item">Courses</span>
+            </div>
+
+            <div class="courses-footer">
+              <a href="Courses.html" class="courses-footer-link">View all</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Show the class schedule. -->
+        <div class="Bottom-Right-Box">
+          <div class="schedule-header">
+            <img src="images/Schedule_icon.png" alt="Schedule Icon" class="schedule-icon">
+            <span class="schedule-title">SCHEDULE</span>
+          </div>
+
+          <div class="schedule-image-container">
+            <img src="images/Schedule.png" alt="Class Schedule" width="50%" height="auto">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
