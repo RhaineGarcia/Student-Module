@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body>
+  <!-- Wrap the sidebar and scores content. -->
+  <div class="dashboard-layout">
+    <!-- Provide navigation between student pages. -->
+    <div class="sidebar-container">
+      <!-- Show the application identity. -->
+      <div class="logo-row">
+        <img src="images/IMARKA_LOGO.png" alt="Logo" class="logo-image">
+        <span class="brand-text">iMarka</span>
+      </div>
+
+      <!-- Label the primary navigation area. -->
+      <span class="menu-label">Main Menu</span>
+
+      <!-- Link to the main student pages. -->
+      <nav class="menu-links">
+        <a href="dashboard.html" class="tab-button">
+          <img src="images/Dashboard_icon.png" alt="Dashboard Icon">
+          <span>Dashboard</span>
+        </a>
+
+        <a href="Courses.html" class="tab-button active-tab">
+          <img src="images/Courses_icon.png" alt="Courses Icon">
+          <span>Courses</span>
+        </a>
+      </nav>
+
+      <!-- Provide the logout action. -->
+      <a href="#" class="logout-button">
+        <span>Log out</span>
+      </a>
+    </div>
+
+    <!-- Display the selected course scores. -->
+    <div class="main-content">
+      <h1 class="page-title">Scores</h1>
+
+      <!-- Show the grade and attendance summaries. -->
+      <div class="top-cards-row">
+
+        <!-- Show the current subject grade. -->
+        <div class="score-card">
+          <div class="card-details">
+            <span class="course-code">GE 008</span>
+            <span class="course-title">ETHICS</span>
+          </div>
+
+          <div class="grade-circle">
+            <span class="grade-circle-text">1.75</span>
+          </div>
+        </div>
+
+        <!-- Show the attendance percentage. -->
+        <div class="score-card">
+          <div class="card-details">
+            <span class="course-code">ATTENDANCE</span>
+            <span class="course-title">ETHICS</span>
+            <a href="#" class="view-more-link">VIEW MORE</a>
+          </div>
+
+          <div class="grade-circle">
+            <span class="grade-circle-text">5%</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Show the selected term's score breakdown. -->
+      <div class="scores-box">
+
+        <div class="term-tabs">
+          <button class="term-tab active-term">Midterms</button>
+          <button class="term-tab">Finals</button>
+        </div>
+
+        <div class="score-rows">
+
+          <div class="score-row">
+            <span class="score-row-label">Quizzes</span>
+            <div class="score-row-right">
+              <span class="score-percentage">24%</span>
+              <a href="#" class="view-scores-link">VIEW SCORES</a>
+            </div>
+          </div>
+
+          <div class="score-row">
+            <span class="score-row-label">Participation</span>
+            <div class="score-row-right">
+              <span class="score-percentage">5%</span>
+              <a href="#" class="view-scores-link">VIEW SCORES</a>
+            </div>
+          </div>
+
+          <div class="score-row">
+            <span class="score-row-label">Seatwork/Assignment/Groupwork</span>
+            <div class="score-row-right">
+              <span class="score-percentage">15%</span>
+              <a href="#" class="view-scores-link">VIEW SCORES</a>
+            </div>
+          </div>
+
+          <div class="score-row">
+            <span class="score-row-label">Major Exam</span>
+            <div class="score-row-right">
+              <span class="score-percentage">40%</span>
+              <a href="#" class="view-scores-link">VIEW SCORES</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

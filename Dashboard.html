@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body>
+  <!-- Wrap the dashboard layout. -->
+  <div class="dashboard-layout">
+
+    <!-- Provide navigation between student pages. -->
+    <div class="sidebar-container">
+
+      <!-- Show the application identity. -->
+      <div class="logo-row">
+        <img src="images/IMARKA_LOGO.png" alt="Logo" class="logo-image">
+        <span class="brand-text">iMarka</span>
+      </div>
+
+      <!-- Label the primary navigation area. -->
+      <span class="menu-label">Main Menu</span>
+
+      <!-- Link to the main student pages. -->
+      <nav class="menu-links">
+        <a href="dashboard.html" class="tab-button active-tab">
+          <img src="images/Dashboard_icon.png" alt="Dashboard Icon">
+          <span>Dashboard</span>
+        </a>
+
+        <a href="Courses.html" class="tab-button">
+          <img src="images/Courses_icon.png" alt="Courses Icon">
+          <span>Courses</span>
+        </a>
+      </nav>
+
+      <!-- Provide the logout action. -->
+      <a href="#" class="logout-button">
+        <span>Log out</span>
+      </a>
+
+    </div>
+
+    <!-- Display the dashboard information. -->
+    <div class="main-content">
+
+      <!-- Show the student's welcome and profile data. -->
+      <div class="topbox">
+        <span class="welcome-text">Welcome, Yapapa Cat</span>
+
+        <div class="profile-info">
+          <!-- Display the profile image. -->
+          <img src="images/YAPAPA.png" alt="Profile Picture" class="profile-image">
+
+          <div class="data-column">
+            <span class="student-name">Yapapa Cat</span>
+
+            <div class="student-data">
+              <div class="data-column student-info-text">
+                <span>STUDENT ID:</span>
+                <span>25-00836</span>
+              </div>
+
+              <div class="data-column student-info-text">
+                <span>PROGRAM:</span>
+                <span>BSCS</span>
+              </div>
+
+              <div class="data-column student-info-text">
+                <span>SECTION:</span>
+                <span>BSCS-2A</span>
+              </div>
+
+              <div class="data-column student-info-text">
+                <span>EMAIL:</span>
+                <span>YapapaCat@plpasig.edu.ph</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Display the lower dashboard cards. -->
+      <div class="bottom-layout-split">
+
+        <!-- Group the GWA and courses cards. -->
+        <div class="bottom-left-stack">
+
+          <!-- Show the current general weighted average. -->
+          <div class="bottom-left-upper-box">
+            <div class="gwa-container">
+              <img src="images/GWA_icon.png" alt="GWA Icon">
+
+              <div class="gwa-info">
+                <span class="gwa-label">GWA</span>
+                <span class="gwa-value">1.75</span>
+                <span class="gwa-subtext">Current GWA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Show the number of enrolled courses. -->
+          <div class="bottom-left-lower-box">
+            <div class="courses-header">
+              <img src="images/Enrolled_icon.png" alt="Courses Icon" class="courses-icon">
+
+              <div class="courses-header-text">
+                <span class="courses-title">COURSES ENROLLED</span>
+                <span class="courses-amount">6</span>
+              </div>
+            </div>
+
+            <div class="courses-list">
+              <span class="courses-item">Courses</span>
+              <span class="courses-item">Courses</span>
+              <span class="courses-item">Courses</span>
+            </div>
+
+            <div class="courses-footer">
+              <a href="Courses.html" class="courses-footer-link">View all</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Show the class schedule. -->
+        <div class="bottom-right-box">
+          <div class="schedule-header">
+            <img src="images/Schedule_icon.png" alt="Schedule Icon" class="schedule-icon">
+            <span class="schedule-title">SCHEDULE</span>
+          </div>
+
+          <div class="schedule-image-container">
+            <img src="images/Schedule.png" alt="Class Schedule">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

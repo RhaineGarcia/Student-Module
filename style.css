@@ -1,0 +1,544 @@
+/* Shared page styles. */
+html,
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #dcedb9;
+	font-family: "Futura", sans-serif;
+}
+
+body {
+	min-height: 100vh;
+}
+
+.dashboard-layout {
+	display: flex;
+	flex-direction: row;
+}
+
+.sidebar-container {
+	width: 250px;
+	min-height: 100vh;
+	background-color: #B5D29C;
+	padding: 30px 20px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+}
+
+.logo-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.logo-image {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+}
+
+.brand-text {
+	font-size: 22px;
+	font-weight: bold;
+	color: #4A6B41;
+	font-family: "Futura", sans-serif;
+}
+
+.menu-label {
+	font-size: 13px;
+	font-weight: bold;
+	color: #5D7A50;
+	font-family: "Futura", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin-top: 40px;
+}
+
+.menu-links {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.tab-button {
+	display: flex;
+	align-items: center;
+	gap: 13px;
+	text-decoration: none;
+	color: #000000;
+	font-family: "Futura", sans-serif;
+	padding: 13px 25px;
+}
+
+.tab-button img,
+.bottom-left-upper-box img,
+.courses-header img,
+.schedule-icon {
+	mix-blend-mode: multiply;
+}
+
+.tab-button img {
+	width: 30px;
+}
+
+.active-tab {
+	background-color: #D2E7C4;
+	border-radius: 30px;
+	text-decoration: none;
+	color: #000000;
+}
+
+.logout-button {
+	display: flex;
+	align-items: center;
+	gap: 13px;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #6f8759;
+	padding: 13px 25px;
+	border-radius: 30px;
+	font-family: "Futura", sans-serif;
+	margin-top: auto;
+}
+
+/* Courses and grades page styles. */
+.main-content {
+	flex: 1;
+	padding: 30px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.page-title {
+	font-size: 30px;
+	font-weight: bold;
+	color: black;
+	font-family: "Futura", sans-serif;
+}
+
+.courses-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+}
+
+.course-card,
+.score-card {
+	background-color: #9dad6f;
+	border-radius: 20px;
+	padding: 25px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.score-card {
+	flex: 1;
+}
+
+.top-cards-row {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
+
+.card-details {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.course-code {
+	font-size: 24px;
+	font-weight: bold;
+	color: #3d4a26;
+}
+
+.course-title {
+	font-size: 14px;
+	font-weight: bold;
+	color: #4b5833;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.view-more-link,
+.view-scores-link {
+	display: inline-block;
+	background-color: #dcedb9;
+	color: #000000;
+	text-decoration: none;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 6px 16px;
+	border-radius: 20px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.2s ease;
+}
+
+.view-more-link {
+	align-self: flex-start;
+}
+
+.view-more-link:hover,
+.view-scores-link:hover {
+	background-color: #D2E7C4;
+}
+
+.grade-circle {
+	position: relative;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	background: conic-gradient(#dcedb9 0deg 306deg, #7c8f56 306deg 360deg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.grade-circle::before {
+	content: "";
+	position: absolute;
+	width: 66px;
+	height: 66px;
+	border-radius: 50%;
+	background-color: #9dad6f;
+}
+
+.grade-circle-text {
+	position: relative;
+	z-index: 1;
+	font-size: 20px;
+	font-weight: bold;
+	color: #3d4a26;
+	font-family: "Futura", sans-serif;
+}
+
+.scores-box {
+	background-color: #9dad6f;
+	border-radius: 20px;
+	padding: 30px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.term-tabs {
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+}
+
+.term-tab {
+	font-family: "Futura", sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #3d4a26;
+	background-color: #8a9a5f;
+	padding: 10px 20px;
+	border-radius: 12px;
+	text-transform: uppercase;
+	cursor: pointer;
+	border: none;
+}
+
+.term-tab.active-term {
+	background-color: #dcedb9;
+}
+
+.score-rows {
+	display: flex;
+	flex-direction: column;
+	gap: 22px;
+}
+
+.score-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.score-row-label {
+	font-size: 18px;
+	font-weight: bold;
+	color: black;
+	text-transform: uppercase;
+	font-family: "Futura", sans-serif;
+}
+
+.score-row-right {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 25px;
+}
+
+.score-percentage {
+	font-size: 22px;
+	font-weight: bold;
+	color: black;
+	font-family: "Futura", sans-serif;
+}
+
+/* Dashboard page styles. */
+html:has(.dashboard-layout) body {
+	height: 100%;
+}
+
+body:has(.topbox) .main-content {
+	gap: 20px;
+	min-height: 100vh;
+}
+
+.student-name {
+	font-size: 30px;
+	font-weight: bold;
+	background-color: #D2E7C4;
+	border-radius: 20px;
+	padding: 5px 10px;
+	align-self: flex-start;
+	display: inline-block;
+}
+
+.student-info-text {
+	font-size: 15px;
+	font-family: "Futura", sans-serif;
+	color: black;
+	font-weight: bold;
+	padding-left: 10px;
+}
+
+.topbox {
+	background-color: #9dad6f;
+	border-radius: 20px;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	box-sizing: border-box;
+}
+
+.welcome-text {
+	font-size: 25px;
+	font-weight: bold;
+	color: #000000;
+	font-family: "Futura", sans-serif;
+	margin-bottom: 10px;
+}
+
+.profile-info {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	gap: 20px;
+}
+
+.profile-image {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+
+.student-data {
+	display: flex;
+	flex-direction: row;
+	gap: 150px;
+}
+
+.data-column {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.bottom-layout-split {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	flex: 1;
+}
+
+.bottom-left-stack {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.bottom-left-upper-box,
+.bottom-left-lower-box,
+.bottom-right-box {
+	background-color: #9dad6f;
+	border-radius: 20px;
+	box-sizing: border-box;
+}
+
+.bottom-left-upper-box {
+	flex: 1;
+	margin-bottom: 20px;
+	padding: 30px;
+	display: flex;
+}
+
+.gwa-container {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.gwa-info {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	font-family: "Futura", sans-serif;
+	color: black;
+	font-weight: bold;
+}
+
+.gwa-label {
+	font-size: 30px;
+	font-weight: bold;
+	font-family: "Futura", sans-serif;
+}
+
+.gwa-value {
+	font-size: 60px;
+	font-weight: bold;
+	font-family: "Futura", sans-serif;
+}
+
+.gwa-subtext {
+	font-size: 30px;
+	font-weight: normal;
+	font-family: "Futura", sans-serif;
+}
+
+.gwa-container img {
+	width: 60px;
+	height: 60px;
+	object-fit: contain;
+}
+
+.bottom-left-lower-box {
+	flex: 1;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.courses-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+
+.courses-icon {
+	width: 50px;
+	height: auto;
+}
+
+.courses-header-text {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	font-family: "Futura", sans-serif;
+	color: black;
+}
+
+.courses-title {
+	font-size: 30px;
+	font-weight: bold;
+	font-family: "Futura", sans-serif;
+}
+
+.courses-amount {
+	font-size: 20px;
+	font-weight: bold;
+	font-family: "Futura", sans-serif;
+}
+
+.courses-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-family: "Futura", sans-serif;
+	color: black;
+	font-weight: bold;
+}
+
+.courses-item {
+	font-size: 20px;
+	font-weight: bold;
+	font-family: "Futura", sans-serif;
+	color: black;
+}
+
+.courses-footer {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.courses-footer-link {
+	font-size: 15px;
+	font-weight: bold;
+	font-family: "Futura", sans-serif;
+	color: black;
+	text-decoration: none;
+	background-color: #D2E7C4;
+	padding: 5px 10px;
+	border-radius: 20px;
+	transition: background-color 0.3s ease;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-right-box {
+	flex: 1;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.schedule-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.schedule-icon {
+	width: 60px;
+	height: auto;
+}
+
+.schedule-title {
+	font-size: 25px;
+	font-weight: bold;
+	font-family: "Futura", sans-serif;
+	color: black;
+}
+
+.schedule-image-container {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.schedule-image-container img {
+	width: 50%;
+	height: auto;
+	max-width: 100%;
+	border-radius: 10px;
+}
